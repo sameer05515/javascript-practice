@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My Heading</h2>
+
+<p>Play around with the code and click on the "Run" button to view the result.</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+const save=(saveCallback=()=>{
+	document.getElementById("demo3").innerHTML = 'default callback';
+})=>{
+	console.log('saved data');
+    saveCallback('my-value','my-field-name');
+}
+
+const mySCB1= (value, name)=>{
+	const message= `mySCB1 value : '${value}' name : '${name}'`;
+	console.log(message);
+    document.getElementById("demo1").innerHTML = message;
+}
+
+const mySCB2= (value)=>{
+	const message= `mySCB2 value : '${value}'`;
+	console.log(message);
+    document.getElementById("demo2").innerHTML = message;
+}
+
+save(mySCB1);
+save(mySCB2);
+save();
+</script>
+
+</body>
+</html>
